@@ -1,9 +1,20 @@
-# My ignores #
-# The .sublime directory contains the Sublime Text project files.
-/.sublime
+##################
+# Global ignores #
+##################
+
+# A "trash" folder anywhere in the repository.
+__000__/
+
+# Ignore Sublime Text "workspace file" without ignoring the Sublime Text project file.
+*.sublime-workspace
+
+# A folder containing log files.
+logs/
 
 # Compiled source #
 ###################
+.sass-cache/
+__pycache__/
 *.com
 *.class
 *.dll
@@ -11,6 +22,8 @@
 *.o
 *.so
 *.pyc
+*.pickle
+*.inv
 
 # Packages #
 ############
