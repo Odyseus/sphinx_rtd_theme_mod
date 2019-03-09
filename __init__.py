@@ -19,4 +19,14 @@ def get_html_theme_path():
 def setup(app):
     """See http://www.sphinx-doc.org/en/stable/theming.html#distribute-your-theme-as-a-python-package.
     """
-    app.add_html_theme('sphinx_rtd_theme', path.abspath(path.dirname(__file__)))
+    app.add_html_theme("sphinx_rtd_theme_mod", path.abspath(path.dirname(__file__)))
+
+    # For sphinx-1.8 or later.
+    # Don't fail if using Sphinx <1.8.
+    try:
+        rtd_locales_path = path.join(path.abspath(path.dirname(__file__)), "locales")
+
+        if path.exists(rtd_locales_path) and path.isdir(rtd_locales_path):
+            app.add_message_catalog("sphinx", rtd_locales_path)
+    except Exception:
+        pass
