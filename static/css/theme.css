@@ -6322,29 +6322,6 @@ span[id*="MathJax-Span"] {
 .math {
     text-align: center;
 }
-/* Custom styling classes. */
-.text-bold {
-    font-weight: bold !important;
-}
-.text-bolder {
-    font-weight: bolder !important;
-}
-.text-italic {
-    font-style: italic !important;
-}
-.text-oblique {
-    font-style: oblique !important;
-}
-.text-overline {
-    text-decoration: overline !important;
-}
-.text-line-through {
-    text-decoration: line-through !important;
-}
-.text-underline {
-    text-decoration: underline !important;
-}
-/* Custom styling classes. */
 /* For Back To Top Button */
 #to-top-of-page {
     color: #000;
