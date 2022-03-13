@@ -46,12 +46,16 @@
   {%- endblock %}
   </div>
 
-  {%- if show_sphinx %}
-    {# TRANSLATORS: Example output:
-        Built with <a href="sphinx_url">Sphinx</a> using a modified version of <a href="sphinx_rtd_theme_url">sphinx-rtd-theme</a>. #}
-    {% trans sphinx_link='<a href="http://sphinx-doc.org/">Sphinx</a>' ,
-    sphinx_rtd_theme_link='<a href="https://github.com/rtfd/sphinx_rtd_theme">sphinx-rtd-theme</a>' %}Built with {{ sphinx_link }} using a modified version of {{ sphinx_rtd_theme_link }}.{% endtrans %}
-  {%- endif %}
+  {% if show_sphinx %}
+    {%- set sphinx_web = '<a href="https://www.sphinx-doc.org/">Sphinx</a>' %}
+    {%- set readthedocs_web = '<a href="https://readthedocs.org">Read the Docs</a>'  %}
+    {#- Translators: the variable "sphinx_web" is a link to the Sphinx project documentation with the text "Sphinx" #}
+    {%- trans sphinx_web=sphinx_web, readthedocs_web=readthedocs_web %}Built with {{ sphinx_web }} using a{% endtrans %}
+    {#- Translators: "theme" refers to a theme for Sphinx, which alters the appearance of the generated documenation #}
+    <a href="https://gitlab.com/Odyseus/sphinx_rtd_theme_mod">{% trans %}theme{% endtrans %}</a>
+    {#- Translators: this is always used as "provided by Read the Docs", and should not imply Read the Docs is an author of the generated documentation. #}
+    {% trans %}provided by {{ readthedocs_web }}{% endtrans %}.
+  {% endif %}
 
   {%- block extrafooter %} {% endblock %}
 

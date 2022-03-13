@@ -12,14 +12,15 @@ from sphinx.locale import _
 from sphinx.util.logging import getLogger
 
 
-__version__ = "1.0.0"
+__version__ = '1.0.1alpha1'
 __version_full__ = __version__
 
 logger = getLogger(__name__)
 
 
 def get_html_theme_path():
-    """Return list of HTML theme paths."""
+    """Return list of HTML theme paths.
+    """
     cur_dir = path.abspath(path.dirname(path.dirname(__file__)))
     return cur_dir
 
@@ -37,9 +38,7 @@ def config_initiated(app, config):
 def setup(app):
     if python_version[0] < 3:
         logger.warning("Python 2 is deprecated with sphinx_rtd_theme_mod, update to Python 3")
-
     app.require_sphinx("1.6")
-
     if sphinx_version <= (2, 0, 0):
         logger.warning(
             "Sphinx 1.x is deprecated with sphinx_rtd_theme_mod, update to Sphinx 2.x or greater")
