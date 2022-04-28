@@ -42,15 +42,10 @@ function utilThrottle(aFunc, aFreq) {
 }
 
 function smoothScrollToTop() {
-    // THIS IS GARBAGE!!! The animation is jerky on Firefox 62+ (ANOTHER GARBAGE!!!).
-    // $("html, body").animate({
-    //     scrollTop: 0
-    // }, 400);
-
     // Forget the browser specific garbage. I don't need the headache.
     if (window.requestAnimationFrame) {
         try {
-            var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            var currentScroll = window.scrollY || window.pageYOffset;
             if (currentScroll > 0) {
                 window.requestAnimationFrame(smoothScrollToTop);
                 window.scrollTo(0, currentScroll - (currentScroll / 5));
